@@ -12,4 +12,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/nathanpc/pecan.rb'
 
   s.required_ruby_version = File.read('.ruby-version').strip
+  s.add_runtime_dependency 'minitar', '= 0.6.1'
 end
