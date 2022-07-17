@@ -21,6 +21,26 @@ module Pecan
       @value = value
     end
 
+    # Initializes a component attribute from an attribute file line.
+    #
+    # @param line [String] Attribute file line.
+    #
+    # @return [Attribute] Parsed attribute object from line.
+    def self.from_line(line)
+      attr = new
+
+      # Make sure we have a valid line.
+      line = line.strip
+      return nil if line.empty?
+
+      # Parse line and populate the object.
+      str = line.split("\t", 2)
+      attr.name = str[0]
+      attr.value = str[1]
+
+      attr
+    end
+
     # String representation of this object just as it is represented in an
     # attribute file.
     #
