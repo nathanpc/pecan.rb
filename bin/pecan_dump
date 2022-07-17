@@ -9,6 +9,6 @@ if __FILE__ == $PROGRAM_NAME
     exit 1
   end
 
-  pecan = Pecan::Archive.new
+  pecan = Pecan::Archive.read_archive(ARGV[0])
   pecan.dump_contents
 end
