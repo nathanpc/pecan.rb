@@ -6,7 +6,11 @@ module Pecan
   #
   # @author Nathan Campos <nathan@innoveworkshop.com>
   class Attribute
-    attr_accessor :name, :value
+    # @return [String] Descriptive name of the attribute.
+    attr_accessor :name
+
+    # @return [String] Value of the attribute.
+    attr_accessor :value
 
     # Initializes a component attribute.
     #
