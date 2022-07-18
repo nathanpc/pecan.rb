@@ -57,13 +57,13 @@ module Pecan
             # Manifest attributes file.
             StringIO.new(entry.read).each_line do |line|
               attr = Attribute.from_line(line)
-              archive.attribs.append(attr) unless attr.nil?
+              archive.attribs << attr unless attr.nil?
             end
           when PARAM_FILE
             # Parameters attributes file.
             StringIO.new(entry.read).each_line do |line|
               attr = Attribute.from_line(line)
-              archive.params.append(attr) unless attr.nil?
+              archive.params << attr unless attr.nil?
             end
           when IMAGE_FILE
             # Component image file.
