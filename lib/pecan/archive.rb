@@ -5,6 +5,7 @@ require 'stringio'
 require 'minitar'
 
 require 'pecan/attribute'
+require 'pecan/blob'
 
 module Pecan
   # Deals with virtual electronic component files known as Pecan component
@@ -33,6 +34,8 @@ module Pecan
     def initialize
       @attribs = []
       @params = []
+      @image = nil
+      @datasheet = nil
     end
 
     # Reads an component archive and returns an populated object that represents
@@ -62,6 +65,12 @@ module Pecan
               attr = Attribute.from_line(line)
               archive.params.append(attr) unless attr.nil?
             end
+          when IMAGE_FILE
+            # Component image file.
+            archive.image = Blob.new('image/bmp', entry.read)
+          when DATASHEET_FILE
+            # Component datasheet file.
+            archive.datasheet = Blob.new('application/pdf', entry.read)
           end
         end
       end
@@ -76,6 +85,9 @@ module Pecan
 
       puts "Parameters: [#{@params.length}]"
       @params.each { |attr| puts "    '#{attr.name}' = '#{attr.value}'" }
+
+      puts 'Has image' unless @image.nil?
+      puts 'Has datasheet' unless @datasheet.nil?
     end
   end
 end
