@@ -4,15 +4,15 @@
 require 'stringio'
 require 'minitar'
 
-require 'pecan/attribute'
-require 'pecan/blob'
+require 'archive/pecan/attribute'
+require 'archive/pecan/blob'
 
-module Pecan
+module Archive
   # Deals with virtual electronic component files known as Pecan component
   # archives.
   #
   # @author Nathan Campos <nathan@innoveworkshop.com>
-  class Archive
+  class Pecan
     MANIFEST_FILE  = 'manifest.tsv'
     PARAM_FILE     = 'parameters.tsv'
     IMAGE_FILE     = 'image.bmp'
@@ -38,8 +38,8 @@ module Pecan
       @datasheet = nil
     end
 
-    # Reads an component archive and returns an populated object that represents
-    # it.
+    # Reads an component archive and returns an populated object that
+    # represents it.
     #
     # @param path [String] Path to the component archive to be read.
     #

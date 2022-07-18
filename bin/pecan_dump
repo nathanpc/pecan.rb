@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'pecan/archive'
+require 'archive/pecan'
 
 if __FILE__ == $PROGRAM_NAME
   if ARGV.length != 1
@@ -9,6 +9,6 @@ if __FILE__ == $PROGRAM_NAME
     exit 1
   end
 
-  pecan = Pecan::Archive.read_archive(ARGV[0])
+  pecan = Archive::Pecan.read_archive(ARGV[0])
   pecan.dump_contents
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |s|
-  s.name        = 'pecan'
+  s.name        = 'archive-pecan'
   s.version     = '0.1.0'
   s.licenses    = ['MIT']
   s.summary     = 'Work with Pecan component archives'
